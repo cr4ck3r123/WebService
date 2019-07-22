@@ -13,6 +13,8 @@ public interface MarcaRepository extends JpaRepository<Marca, Long>{
 	
 	Marca findById(int id);
 	
+	Marca findByNome(String nome);
+	
 	List<Marca> findAll();
 
 }
