@@ -45,7 +45,7 @@ public class MarcaResorces {
 
 	@GetMapping("/marca/{nome}")
 	@ApiOperation("Lista Marca por nome")
-	public Marca listaMarcaId(@PathVariable(value="nome") String nome){
+	public Marca listaMarcaNome(@PathVariable(value="nome") String nome){
 		return marcaRepository.findByNome(nome);
 	}
 
