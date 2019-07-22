@@ -47,7 +47,7 @@ public class ClienteResorces {
 		return clienteRepository.save(user);
 	}
 	
-	@DeleteMapping("/cliente")
+	@DeleteMapping("/delcliente")
 	@ApiOperation("Deletar clientes")
 	public void deleteCliente(@RequestBody Cliente user){
 	clienteRepository.delete(user);
@@ -59,7 +59,6 @@ public class ClienteResorces {
 	return clienteRepository.save(user);
 	}
 	
-	
-	
+		
 
 }
