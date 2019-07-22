@@ -53,6 +53,13 @@ public class ClienteResorces {
 	clienteRepository.delete(user);
 	}
 	
+	@DeleteMapping("/delclienteid/{id}")
+	@ApiOperation("Deletar clientes")
+	public void deleteClienteId(@PathVariable(value="id") int id){
+	clienteRepository.deleteById(id);
+	}
+	
+	
 	@PutMapping("/cliente")
 	@ApiOperation("Atualiza Cliente")
 	public Cliente atualizaCliente(@RequestBody Cliente user){

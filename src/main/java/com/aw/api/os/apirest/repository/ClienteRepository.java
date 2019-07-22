@@ -10,4 +10,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	
 	Cliente findById(int id);
 
+	void deleteById(int id);
+
 }
