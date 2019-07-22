@@ -15,5 +15,7 @@ public interface ModeloRepository extends JpaRepository<Modelo, Long>{
 	Modelo findByNome(String nome);
 	
 	List<Modelo> findAll();
+	
+	List<Modelo> findAllById(int id);
 
 }

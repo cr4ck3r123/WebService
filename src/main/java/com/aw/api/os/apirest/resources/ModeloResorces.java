@@ -34,8 +34,8 @@ public class ModeloResorces {
 	
 	@GetMapping("/modelo/{id}")
 	@ApiOperation("Lista Modelo por id")
-	public Modelo listaMarcaId(@PathVariable(value="id") int id){
-		return modeloRepository.findById(id);
+	public List<Modelo> listaMarcaId(@PathVariable(value="id") int id){
+		return modeloRepository.findAllById(id);
 	}
 
 	@GetMapping("/modeloNome/{nome}")
