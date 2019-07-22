@@ -26,19 +26,23 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value="/api")
 @Api(value = "Api Veiculo")
 @CrossOrigin(origins = ("*"))
-public class VeiculoResorces {
+public class MarcaResorces {
 	
 	@Autowired
-	MarcaRepository veiculoRepository;
+	MarcaRepository marcaRepository;
 	
 	@GetMapping("/listaMarca")
 	@ApiOperation("Lista Marcas")
 	public List<Marca> listaMarcas(){
-		return veiculoRepository.findAll();
+		return marcaRepository.findAll();
+	}
+	
+	@GetMapping("/marca/{id}")
+	@ApiOperation("Lista Marca por id")
+	public Marca listaMarcaId(@PathVariable(value="id") int id){
+		return marcaRepository.findById(id);
 	}
 
-	
-	
 	
 	
 
