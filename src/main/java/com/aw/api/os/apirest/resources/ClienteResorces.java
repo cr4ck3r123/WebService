@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.aw.api.os.apirest.controle.ControllerCliente;
 import com.aw.api.os.apirest.modelo.Cliente;
+import com.aw.api.os.apirest.modelo.Usuario;
 import com.aw.api.os.apirest.repository.ClienteRepository;
 
 import io.swagger.annotations.Api;
@@ -55,29 +56,11 @@ public class ClienteResorces {
 		return clienteRepository.save(user);
 	}
 	
-	@DeleteMapping("/delcliente")
-	@ApiOperation("Deletar clientes")
-	public void deleteCliente(@RequestBody Cliente user){
+	@DeleteMapping("/cliente")
+	@ApiOperation("Deletar Clientes")
+	public void deleteUsuario(@RequestBody Cliente user){
 	clienteRepository.delete(user);
 	}
-	
-	@DELETE
-	@Path("delete/{idcliente}/")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public String remover(@PathVariable(value="id") int id) throws Exception {
-			String msg = "";
-			try {
-				ControllerCliente.removerCliente(id);
-				msg = "Cliente removido com sucesso!!!";
-			} catch (SQLException e) {
-				msg = "Cliente n�o removido";
-				e.printStackTrace();
-				System.out.print(e);
-			}
-
-			return msg;
-		}
 	
 	@PutMapping("/cliente")
 	@ApiOperation("Atualiza Cliente")
