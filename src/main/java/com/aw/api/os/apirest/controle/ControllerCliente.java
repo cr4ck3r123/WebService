@@ -117,7 +117,7 @@ public class ControllerCliente {
 	public static void removerCliente(int idCliente) throws Exception {
 		    Connection conexao = Conexao.conector();
 			
-			String sql = "select mydb.`delete`(?)";
+			String sql = "delete from cliente where id = ?";
 			
 			PreparedStatement stm = conexao.prepareStatement(sql);
 			stm.setInt(1, idCliente);

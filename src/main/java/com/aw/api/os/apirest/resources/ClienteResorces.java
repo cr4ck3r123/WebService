@@ -1,5 +1,6 @@
 package com.aw.api.os.apirest.resources;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aw.api.os.apirest.controle.ControllerCliente;
 import com.aw.api.os.apirest.modelo.Cliente;
 import com.aw.api.os.apirest.repository.ClienteRepository;
 
@@ -55,10 +57,19 @@ public class ClienteResorces {
 	
 	@DeleteMapping("/delclienteid/{id}")
 	@ApiOperation("Deletar clientes")
-	public void deleteClienteId(@PathVariable(value="id") int id){
-	clienteRepository.deleteById(id);
-	}
-	
+	public String remover(@PathVariable(value="id") int id) throws Exception {
+			String msg = "";
+			try {
+				ControllerCliente.removerCliente(id);
+				msg = "Cliente removido com sucesso!!!";
+			} catch (SQLException e) {
+				msg = "Cliente n�o removido";
+				e.printStackTrace();
+				System.out.print(e);
+			}
+
+			return msg;
+		}
 	
 	@PutMapping("/cliente")
 	@ApiOperation("Atualiza Cliente")
