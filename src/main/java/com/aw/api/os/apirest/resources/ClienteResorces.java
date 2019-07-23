@@ -59,7 +59,12 @@ public class ClienteResorces {
 	@DeleteMapping("/cliente")
 	@ApiOperation("Deletar Clientes")
 	public void deleteUsuario(@RequestBody Cliente user){
-	clienteRepository.delete(user);
+		try {
+			clienteRepository.delete(user);
+		} catch (Exception e) {
+		System.out.print(e);
+		}
+	
 	}
 	
 	@PutMapping("/cliente")

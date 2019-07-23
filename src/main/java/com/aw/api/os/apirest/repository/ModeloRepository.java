@@ -16,6 +16,6 @@ public interface ModeloRepository extends JpaRepository<Modelo, Long>{
 	
 	List<Modelo> findAll();
 	
-	List<Modelo> findAllById(int id);
+	List<Modelo> findAllById(int idmarca);
 
 }
